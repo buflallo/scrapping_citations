@@ -1,3 +1,4 @@
+
 # Scrapy settings for demo_project project
 #
 # For simplicity, this file contains only settings considered important or
@@ -25,13 +26,16 @@ ROBOTSTXT_OBEY = False
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 10
+DOWNLOAD_DELAY = 5
+
+HTTPERROR_ALLOWED_CODES = [400]
+
 # The download delay setting will honor only one of:
 # CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-# COOKIES_ENABLED = TRUE
+# COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 TELNETCONSOLE_ENABLED = False
@@ -78,6 +82,26 @@ TELNETCONSOLE_ENABLED = False
 #AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0
 # Enable showing throttling stats for every response received:
 #AUTOTHROTTLE_DEBUG = False
+
+# DOWNLOADER_MIDDLEWARES = {
+#     'demo_project.middlewares.SocksProxyMiddleware': 100,
+# }
+
+
+# SOCKS5_HOST = '51.159.25.139'
+# SOCKS5_PORT = 8886
+# SOCKS5_USER = 'YF7YE0ZDWRP8SHXOQFMSCGJQDMQ2NMKC0GBYCXTNZD8W8MIYVRR5LRP3SA9UCBMG6Z6XNUGVNX1LIJV2'
+# SOCKS5_PASS = 'custom_google'
+
+# SCRAPINGBEE_API_KEY = 'YF7YE0ZDWRP8SHXOQFMSCGJQDMQ2NMKC0GBYCXTNZD8W8MIYVRR5LRP3SA9UCBMG6Z6XNUGVNX1LIJV2'
+# DOWNLOADER_MIDDLEWARES = {
+#     'scrapy_scrapingbee.ScraperAPIProxy': 610,
+#     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+#     'scrapy_user_agents.middlewares.RandomUserAgentMiddleware': 400,
+# }
+# SCRAPINGBEE_PARAMS = {
+#     'render_js': 1,
+# }
 
 # Enable and configure HTTP caching (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings

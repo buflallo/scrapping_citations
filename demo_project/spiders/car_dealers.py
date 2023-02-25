@@ -5,64 +5,43 @@ import re
 class CarDealersSpider (scrapy.Spider):
     name = "car_dealers"
     headers_home_advisor = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36',
+        'JSESSIONID': 'E180B9E0455F462109507F0895EC5A0B',
         'cookiesEnabled': '1',
         'aff_track': '2|*|23116563|*|0',
-        'originatingSessionID': '1676851529514site-545fb5b75d-j86fh7C38B8E749F44BD3446ABB1AE77C762F',
+        'originatingSessionID': '1677283504560site-6cd99748b6-m5mcpE180B9E0455F462109507F0895EC5A0B',
         'csacn': '746971',
+        'csdcn': '1677283504560',
+        'psacn': '""',
+        'psdcn': '0',
+        'sess_log': '1677283504560site-6cd99748b6-m5mcpE180B9E0455F462109507F0895EC5A0B',
+        '__cflb': '0H28vcAZaTP4ptpqrB3WECLQyMNamMKsSEwrACN943D',
+        '__cf_bm': 'M5GtwrT_kCbIH5m1jooHbVds6rZZNbwZHKt75bkHWWg-1677283504-0-AXQQkW7Iued5qz2hwaxcauEf/K21qRq9IlLjGFpH29fctYRftif1mdD50IWtz1b/dA9YUMYBn35+ywDKqNxur2E=',
         'AMCVS_D5C06A65527038CC0A490D4D@AdobeOrg': '1',
-        's_ecid': 'MCMID|33561830398888401901318217502581917265',
-        'AMCV_D5C06A65527038CC0A490D4D@AdobeOrg': '1585540135|MCIDTS|19409|MCMID|33561830398888401901318217502581917265|MCAAMLH-1677456331|6|MCAAMB-1677456331|RKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y|MCOPTOUT-1676858731s|NONE|MCAID|NONE|vVersion|4.4.0',
+        's_ecid': 'MCMID|28948151415078795890386169278950781922',
         's_eVar8': 'unknown',
+        'fpv': '1',
         'c_m': 'undefinedType-InType-In',
         's_e69': 'Type-In',
-        'v71': '[["Type-In", "1676851531785"]]',
-        'v72': '[["0", "1676851531785"]]',
-        's_evar48': 'Weekend',
+        'v71': '[["Type-In", "1677283509930"]]',
+        'v72': '[["0", "1677283509931"]]',
+        's_evar46': '5%3A00PM',
+        's_evar48': 'Weekday',
+        's_dslv2': '1677283509933',
+        's_dslv2_s': 'First%20Visit',
+        's_gnr': '1677283509934-New',
+        's_gnr2': 'New',
+        's_vnum': '1677625200936&vn=1',
+        's_invisit': 'true',
+        's_visNum': '1',
+        'v11': '52.30.117.125',
         's_cc': 'true',
-        '_gcl_au': '1.1.2049507585.1676851532',
-        '_ga': 'GA1.2.1242567351.1676851532',
-        '_gid': 'GA1.2.594539560.1676851532',
-        '_fbp': 'fb.1.1676851532456.1098594798',
-        '_li_dcdm_c': '.homeadvisor.com',
-        '_lc2_fpi': '0f1834a81c24--01gsp27napn0cx3nc8vr3fbhq0',
-        '_clck': 'cx01i2|1|f9a|0',
-        's_e4': 'event4',
-        'reese84': '3:xBCyvDosVMX55WxQrLGa5Q==:7GnkOQpxhL5EyiG84h5BdwCuC3dnD5WVjCVThrwNMqt+bCYEN97lB1jasnC8k3wHM3TqrsBG78RUSwBqMyYVBGdyP9iC3xrv1n6aQKZqbjwx4EL1oWans87HGZt3yNLxp4Zw14B85ISP9LIFtDLHZ1EFxPNHVxH1ubXuhkL5cv/CbTgAQzOUwDn476ndz4a2qb50+m9I/jWPa8z4Gbe9r9MDyfIWHUs1ZqYqUp4BQzilZTXeRXSnTcT6W7MzhFA/Z3EUszCiK+yvKwLEKgKQg5D+k2LfIARmYC+jDiweE/U63I'
+        'AMCV_D5C06A65527038CC0A490D4D@AdobeOrg': '1585540135|MCIDTS|19414|MCMID|28948151415078795890386169278950781922|MCAAMLH-1677888307|6|MCAAMB-1677888307|RKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y|MCOPTOUT-1677290709s|NONE|MCSYNCSOP|411-19421|MCAID|'
     }
     headers_porch = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
     }
-    us_info_cookies = {
-        
-    }
-    headers_us_info = {
-        'HttpOnly': '',
-        'ASP.NET_SessionId': 'ytbdbrzad4xh4f00kvdcaxi3',
-        'GloutonCookie': 'Ng0wO3q/N6rixX+xyKD1XtcKbWTOef3REo4stqtVZUkYIG1rO6fePtcI6Ct27fP5QWkzRGy8aVRPxrUwnvQ1ZNRvRpj8iP3eeaEocAr0sTbXEjbUCiLEZZAedlsS9q9eJmJctTxHLLnlA2SWRaxkslgZjrGT0iLG6w6I8mYuTweMyxcGIG5RYS6BIYWeWNDmh5OsLXTpFZkVWOEgdhQpzSUgiD9l2cTkB2jMaSZZpSiMlW8qU4yBZA/tD6pqdprAZ0Ncxe4MTFVRbA++5PQ5Y6b9prZB3IQK0ul7wv9s+rpbUbc6TpCI+vBHDSOEWB8uT7+eNDTT7N0yXJFojtajdA==',
-        'SERVERID': 'WEB52',
-        '__atuvc': '21|8',
-        '__atuvs': '63f8fa3238263cce000',
-        '__gads': 'ID=0a7d58653cd7c618-22d684e620dc00e1:T=1677088411:S=ALNI_MaNu6LVIapKxIuIjUkvmqfITu2eRQ',
-        '__gpi': 'UID=00000bddfa2d44d9:T=1677088411:RT=1677261101:S=ALNI_MaF7N4B-f1pEcR2XZAlqCQwmYXPiQ',
-        '_ga': 'GA1.2.957291552.1677088414',
-        '_gid': 'GA1.2.471441298.1677261100',
-        '_gcl_au': '1.1.467099721.1677088414',
-        '__gsas': 'ID=817707288380d9b1:T=1677088461:S=ALNI_MbG7LXaLfs8JFaxmy7eSqZr4IzJcg',
-        'hubspotutk': 'efc4d35511a385f3136da2c36fe47c30',
-        '__hssc': '209030989.17.1677261100402',
-        '__hssrc': '1',
-        '__hstc': '209030989.efc4d35511a385f3136da2c36fe47c30.1677088414926.1677088414926.1677261100402.2',
-        '__hs_opt_out': 'no',
-        '__hs_initial_opt_in': 'true',
-        'sel_lang': 'fr',
-        'sel_sort_order': '1',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 OPR/95.0.0.0'
-    }
     headers_superpages = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
-    }
-    headers_dexknows = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
     }
     headers_tupalo = {
@@ -70,32 +49,41 @@ class CarDealersSpider (scrapy.Spider):
     }
     def start_requests(self):
 
-        cities = ['Aberdeen', 'Belle_Fourche', 'Box_Elder', 'Brandon', 'Brookings']
+        cities = ['Aberdeen', 'Brookings']
         for city in cities:
-                # url_home_advisor = 'https://www.homeadvisor.com/c.Electrical.'+city+'.SD.-12026.html'
+                url_home_advisor = 'https://www.homeadvisor.com/c.Electrical.'+city+'.SD.-12026.html'
                 # url_porch = "https://porch.com/"+city.replace('_','-').lower()+"-"+"sd/electricians/cp"
-                url_us_info = "http://us-info.com/fr/usa/business/160500/energie_extraction_electricite/"+city.replace('_','-').lower()+"-"+"sd"
-                # url_superpages = "https://www.superpages.com/"+city.replace('_','-')+"-"+"SD/electricians"
-                # url_dexknows = "https://www.dexknows.com/"+city.replace('_','-')+"-"+"sd/electricians"
-                # url_tupalo = "http://www.tupalo.co/"+city.replace('_','-')+"-"+"South Dakota/c/electricians"
-                # yield scrapy.Request(url=url_home_advisor, callback=self.parse_listings_home_advisor_page, headers=self.headers_home_advisor)
+                # url_superpages = "https://www.superpages.com/"+city.replace('_','-').lower()+"-"+"sd/electricians"
+                # url_tupalo = "http://www.tupalo.co/"+city.replace('_','-').lower()+"-"+"south-dakota/c/electricians"
+                yield scrapy.Request(url=url_home_advisor, callback=self.parse_listings_home_advisor_page, headers=self.headers_home_advisor)
                 # yield scrapy.Request(url=url_porch, callback=self.parse_listings_porch_page, headers=self.headers_porch)
-                yield scrapy.Request(url=url_us_info, cookies=self.us_info_cookies, callback=self.parse_listings_us_info_page, headers=self.headers_us_info,  meta={'proxy': 'http://YF7YE0ZDWRP8SHXOQFMSCGJQDMQ2NMKC0GBYCXTNZD8W8MIYVRR5LRP3SA9UCBMG6Z6XNUGVNX1LIJV2:render_js=TRUE@proxy.scrapingbee.com:8886'})
                 # yield scrapy.Request(url=url_superpages, callback=self.parse_listings_superpages_page, headers=self.headers_superpages)
-                # yield scrapy.Request(url=url_dexknows, callback=self.parse_listings_dexknows_page, headers=self.headers_dexknows)
                 # yield scrapy.Request(url=url_tupalo, callback=self.parse_listings_tupalo_page, headers=self.headers_tupalo)
 
     def parse_listings_home_advisor_page(self, response):
         dealers = response.xpath('//*[@id="service-pros"]/section/div/ul/div')
         for dealer in dealers:
             name = dealer.xpath('div/div[2]/div[3]/h5/a/text()').extract()
+            #print sound bp bp bp
+            print ('\a\a\a')
             dealer_link = "https://www.homeadvisor.com" + dealer.xpath('div/div[2]/div[3]/h5/a/@href').extract_first()
             yield scrapy.Request(response.urljoin(dealer_link), headers=self.headers_home_advisor, callback=self.parse_dealer_home_advisor_page, meta={'dealer_name': name})
 
     def parse_dealer_home_advisor_page(self, response):
         # verify the phone number
+        pattern = r'("telephone"+):"(.*?)(?<!\\)"'
+        dataa = response.xpath('/html/head/script').extract()
+        datab = ''.join(dataa)
+        # return
+        if not datab:
+            print("no data tfoo")
+            pass
+
+        phone = re.search(pattern, datab)
+        print(phone.group(2))
         dealer_obj = {
                 'business name' : response.meta['dealer_name'],
+                'phone' : phone.group(2),
         }
         site = response.xpath('//*[@id="details"]/div/div[1]/div/div/div[1]/a/text()').extract_first()
         if not site:
@@ -122,21 +110,39 @@ class CarDealersSpider (scrapy.Spider):
             yield dealer_obj
 
     def parse_listings_superpages_page(self, response):
-        dealers = response.xpath('//*[@id="service-pros"]/section/div/ul/div')
+        dealers = response.xpath("//*[@id[starts-with(., 'lid')]]/div/div/div[2]")
         for dealer in dealers:
-            name = dealer.xpath('div/div[2]/div[3]/h5/a/text()').extract()
-            dealer_link = "https://www.homeadvisor.com" + dealer.xpath('div/div[2]/div[3]/h5/a/@href').extract_first()
-            yield scrapy.Request(response.urljoin(dealer_link), headers=self.headers_superpages, callback=self.parse_dealer_superpages_page, meta={'dealer_name': name})
+            name = dealer.xpath('div[1]/h2/a/span/text()').extract()
+            phone = dealer.xpath("div[2]/div[1]/a[1]/span[1]/text()").extract()
+            website = dealer.xpath("div[2]/div[1]/a[2]/@href").extract_first()
+            if not website:
+                dealer_obj = {
+                        'business name' : name,
+                        'phone' : phone
+                }
+                yield dealer_obj
+        if (response.css('.next.ajax-page ::attr(href)').extract_first() is not None):
+            yield scrapy.Request(response.urljoin("https://www.superpages.com" + response.css('.next.ajax-page ::attr(href)').extract_first()), headers=self.headers_superpages, callback=self.parse_listings_superpages_page)
 
-    def parse_dealer_superpages_page(self, response):
+    def parse_listings_tupalo_page(self, response):
+        dealers = response.xpath('//*[@id="spot_url"]')
+        for dealer in dealers:
+            name = dealer.xpath('div/h2/span[2]/text()').extract()
+            dealer_link = dealer.xpath('@href').extract_first()
+            yield scrapy.Request(response.urljoin(dealer_link), headers=self.headers_tupalo, callback=self.parse_dealer_tupalo_page, meta={'dealer_name': name})
+
+    def parse_dealer_tupalo_page(self, response):
         # verify the phone number
+        site = response.xpath('/html/body/div/div/section/div[2]/div[2]/dl/div/dd/a/@href').extract_first()
+        phone = response.xpath('/html/body/div/div/section/div[2]/div[2]/dl/dd/span/text()').extract_first()
         dealer_obj = {
                 'business name' : response.meta['dealer_name'],
+                'phone' : phone,
         }
-        site = response.xpath('//*[@id="details"]/div/div[1]/div/div/div[1]/a/text()').extract_first()
         if not site:
             yield dealer_obj
-
+    
+    
     def parse_listings_us_info_page(self, response):
         dealers = response.css('.customer-box.regular-customer')
         # dealer_obj = {
@@ -152,36 +158,6 @@ class CarDealersSpider (scrapy.Spider):
             # yield scrapy.Request(response.urljoin(dealer_link), headers=self.headers_us_info, callback=self.parse_dealer_us_info_page, meta={'dealer_name': name})
 
     def parse_dealer_us_info_page(self, response):
-        # verify the phone number
-        dealer_obj = {
-                'business name' : response.meta['dealer_name'],
-        }
-        site = response.xpath('//*[@id="details"]/div/div[1]/div/div/div[1]/a/text()').extract_first()
-        if not site:
-            yield dealer_obj
-    def parse_listings_tupalo_page(self, response):
-        dealers = response.xpath('//*[@id="service-pros"]/section/div/ul/div')
-        for dealer in dealers:
-            name = dealer.xpath('div/div[2]/div[3]/h5/a/text()').extract()
-            dealer_link = "https://www.homeadvisor.com" + dealer.xpath('div/div[2]/div[3]/h5/a/@href').extract_first()
-            yield scrapy.Request(response.urljoin(dealer_link), headers=self.headers_tupalo, callback=self.parse_dealer_tupalo_page, meta={'dealer_name': name})
-
-    def parse_dealer_tupalo_page(self, response):
-        # verify the phone number
-        dealer_obj = {
-                'business name' : response.meta['dealer_name'],
-        }
-        site = response.xpath('//*[@id="details"]/div/div[1]/div/div/div[1]/a/text()').extract_first()
-        if not site:
-            yield dealer_obj
-    def parse_listings_dexknows_page(self, response):
-        dealers = response.xpath('//*[@id="service-pros"]/section/div/ul/div')
-        for dealer in dealers:
-            name = dealer.xpath('div/div[2]/div[3]/h5/a/text()').extract()
-            dealer_link = "https://www.homeadvisor.com" + dealer.xpath('div/div[2]/div[3]/h5/a/@href').extract_first()
-            yield scrapy.Request(response.urljoin(dealer_link), headers=self.headers_dexknows, callback=self.parse_dealer_dexknows_page, meta={'dealer_name': name})
-
-    def parse_dealer_dexknows_page(self, response):
         # verify the phone number
         dealer_obj = {
                 'business name' : response.meta['dealer_name'],

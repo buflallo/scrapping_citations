@@ -2,11 +2,49 @@
 #
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-
+# import scrapy
 from scrapy import signals
 
 # useful for handling different item types with a single interface
 from itemadapter import is_item, ItemAdapter
+# from scrapy.utils.project import get_project_settings
+# from twisted.internet import reactor
+# import socks
+
+import socks
+import socket
+from urllib.parse import urlparse
+
+# class SocksProxyMiddleware:
+#     def __init__(self, socks5_host, socks5_port, socks5_username=None, socks5_password=None):
+#         self.socks5_host = socks5_host
+#         self.socks5_port = socks5_port
+#         self.socks5_username = socks5_username
+#         self.socks5_password = socks5_password
+
+#     @classmethod
+#     def from_crawler(cls, crawler):
+#         return cls(
+#             socks5_host=crawler.settings.get('SOCKS5_HOST'),
+#             socks5_port=crawler.settings.get('SOCKS5_PORT'),
+#             socks5_username=crawler.settings.get('SOCKS5_USERNAME'),
+#             socks5_password=crawler.settings.get('SOCKS5_PASSWORD')
+#         )
+
+#     def process_request(self, request, spider):
+#         parsed_url = urlparse(request.url)
+#         if parsed_url.scheme == 'https':
+#             socks_version = socks.PROXY_TYPE_SOCKS5
+#         else:
+#             socks_version = socks.PROXY_TYPE_HTTP
+
+#         socks.setdefaultproxy(socks_version, self.socks5_host, self.socks5_port, self.socks5_username, self.socks5_password)
+
+#         # patch the socket module
+#         socket.socket = socks.socksocket
+
+#         # set the request meta with the proxy details
+#         request.meta['proxy'] = request.url
 
 
 class DemoProjectSpiderMiddleware:
